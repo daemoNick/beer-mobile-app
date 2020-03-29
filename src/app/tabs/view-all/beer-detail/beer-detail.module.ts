@@ -6,18 +6,18 @@ import { IonicModule } from '@ionic/angular';
 import { RatingModule } from 'ng-starrating';
 
 
-import { ViewAllPageRoutingModule } from './view-all-routing.module';
+import { BeerDetailPageRoutingModule } from './beer-detail-routing.module';
 
-import { ViewAllPage } from './view-all.page';
+import { BeerDetailPage } from './beer-detail.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ViewAllPageRoutingModule,
+    BeerDetailPageRoutingModule,
     RatingModule
   ],
-  declarations: [ViewAllPage]
+  declarations: [BeerDetailPage]
 })
-export class ViewAllPageModule {}
+export class BeerDetailPageModule {}

@@ -6,7 +6,7 @@
     background-color: #f9f9f9;
     margin: 14px auto;
     border-radius: 6px 6px 6px 6px;
-    box-shadow: -1px 0px 6px 0px rgba(0,0,0,0.38);
+    box-shadow: -1px 0px 6px 0px  #888864;
 }
 
 .beer-item:active{
@@ -47,7 +47,7 @@
     }
 
     .rating-container{
-        height: 20px;
+        // height: 20px;
     }
 }
 
