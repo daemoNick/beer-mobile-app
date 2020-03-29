@@ -1,0 +1,21 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button tab="view-all" (click)="changeMyBeerIcon()">
+      <ion-label>My Beers</ion-label>
+      <ion-icon class="custom-icon" [src]="ismybeerSelected ? clickedMybeer : mybeer"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="add-new" (click)="changeAddNewIcon()">
+      <ion-label>Add New</ion-label>
+      <ion-icon class="custom-icon" [src]="isAddSelected ? clickedAddnew : addNew"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="sort" (click)="changeSortIcon()">
+      <ion-label>Sort</ion-label>
+      <ion-icon class="custom-icon" [src]="isSortSelected ? clickedSort : sort"></ion-icon>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
