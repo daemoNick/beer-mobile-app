@@ -1,0 +1,70 @@
+.beer-item{
+    width: 100%;
+    max-width: 400px;
+    // height: 120px;
+    padding: 3px 10px;
+    background-color: #f9f9f9;
+    margin: 14px auto;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: -1px 0px 6px 0px rgba(0,0,0,0.38);
+}
+
+.beer-item:active{
+    background-color: #f1d2a7;
+}
+
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left{
+
+    .view-icon{
+        height: 80px;
+        width: 40px;
+    }
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    h5{
+        font-weight: bolder;
+        color: #46493E;
+    }
+
+    p{
+        font-style: italic;
+        font-size: 10px;
+        color: #7b7b53;
+    }
+
+    .rating-container{
+        height: 20px;
+    }
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.badge-container{
+    margin-bottom: 13px;
+
+    .badge{
+        --padding-start: 5px;
+        --padding-end: 5px;
+        --padding-top: 2px;
+        --padding-bottom: 2px;
+    }
+}
