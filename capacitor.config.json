@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "beerWithMe",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

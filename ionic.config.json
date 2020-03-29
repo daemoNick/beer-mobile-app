@@ -1,0 +1,7 @@
+{
+  "name": "beerWithMe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
