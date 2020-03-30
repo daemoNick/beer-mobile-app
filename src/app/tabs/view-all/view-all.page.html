@@ -6,51 +6,32 @@
 
 <ion-content class="ion-padding">
   
-  <div class="beer-item flex-row" (click)="openBeerItem()">
+  <div class="beer-items-container" *ngFor="let item of feedItems">
+    <div class="beer-item flex-row" (click)="openBeerItem(item)">
 
-    <div class="left">
-      <img class="view-icon" src="assets/icon/pick-icons/bottle-pick.png" alt="">
-    </div>
+      <div class="left">
+        <img class="view-icon" *ngIf="item.serving_type == 0" [src]="beerIcon" alt="">
+        <img class="view-icon" *ngIf="item.serving_type == 1" [src]="draftIcon" alt="">
+      </div>
+  
+      <div class="center">
+        <h5 class="title">{{item.beer_name}}</h5>
 
-    <div class="center">
-      <h5 class="title">Guinness</h5>
-      <p class="beer-type">Bottle</p>
-      <div class="rating-container">
-        <star-rating value="2" totalstars="5" checkedcolor="#fa9c1c" uncheckedcolor="black" size="24px" readonly="true"></star-rating>
+        <div class="rating-container">
+          <star-rating [value]="item.rating - 1" totalstars="5" checkedcolor="#fa9c1c" uncheckedcolor="black" size="24px" readonly="true" (rate)="onRate($event)"></star-rating>
+        </div>
+      </div>
+  
+      <div class="right">
+        <div class="badge-container">
+          <ion-badge class="badge" color="secondary">{{item.price | currency}}</ion-badge>
+        </div>
+        <div class="badge-container">
+          <ion-badge class="badge">{{item.created_on |  date:'shortDate'}}</ion-badge>
+        </div>
       </div>
     </div>
-
-    <div class="right">
-      <div class="badge-container">
-        <ion-badge class="badge" color="secondary">$8.00</ion-badge>
-      </div>
-      <div class="badge-container">
-        <ion-badge class="badge">1/8/19</ion-badge>
-      </div>
-    </div>
-  </div>
-  <div class="beer-item flex-row" (click)="openBeerItem()">
-
-    <div class="left">
-      <img class="view-icon" src="assets/icon/pick-icons/draft-pick.png" alt="">
-    </div>
-
-    <div class="center">
-      <h5 class="title">Heinekken</h5>
-      <p class="beer-type">Draft</p>
-      <div class="rating-container">
-        <star-rating value="4" totalstars="5" checkedcolor="#fa9c1c" uncheckedcolor="black" size="24px" readonly="true"></star-rating>
-      </div>
-    </div>
-
-    <div class="right">
-      <div class="badge-container">
-        <ion-badge class="badge" color="secondary">$10.00</ion-badge>
-      </div>
-      <div class="badge-container">
-        <ion-badge class="badge">4/8/20</ion-badge>
-      </div>
-    </div>
+  
   </div>
 
 </ion-content>

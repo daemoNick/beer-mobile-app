@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="tabs/view-all"></ion-back-button>
     </ion-buttons>
-    <ion-title>beer-detail</ion-title>
+    <ion-title>{{beerItem.beer_name}}</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -16,8 +16,8 @@
   </div>
 
   <div class="rating-container">
-    <h5>Guinness</h5>
-    <star-rating value="4" totalstars="5" checkedcolor="#fa9c1c" uncheckedcolor="black" size="24px" readonly="true"></star-rating>
+    <h5>{{beerItem.beer_name}}</h5>
+    <star-rating [value]="beerItem.rating - 1" totalstars="5" checkedcolor="#fa9c1c" uncheckedcolor="black" size="24px" readonly="true"></star-rating>
   </div>
 
   <div class="detail-container">
@@ -26,22 +26,23 @@
       <ion-label slot="start">
         Brewer
       </ion-label>
-      <ion-text>jdnvjfnbifbmofmfsb</ion-text>
+      <ion-text>{{beerItem.brewer}}</ion-text>
     </ion-item>
     <ion-item>
       <ion-label slot="start">
         Date Created
       </ion-label>
-      <ion-text>21/01/05</ion-text>
+      <ion-text>{{beerItem.created_on |  date:'shortDate'}}</ion-text>
     </ion-item>
     <ion-item>
       <ion-label slot="start">
         Price
       </ion-label>
-      <ion-text>$ 12.80</ion-text>
+      <ion-text>{{beerItem.price | currency}}</ion-text>
     </ion-item>
     <ion-item>
-      <ion-textarea rows="10" placeholder="nunbjfnjbfhbvjsdvjfsbjbfjbbfjbjfbjvfbsjbsjvbsjdvbjdsbjd"></ion-textarea>
+      <!-- <ion-textarea rows="10" disabled="true" [value]="beerItem.description"></ion-textarea> -->
+      <ion-text><p class="tab">{{beerItem.description}}</p></ion-text>
     </ion-item>
 
   </div>
