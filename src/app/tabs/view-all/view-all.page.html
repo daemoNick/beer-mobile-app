@@ -11,10 +11,10 @@
 
   <div class="filter-container" *ngIf="filterValue && filterValue !== 'nil'">
     <ion-item>
-      <ion-label slot="start">
+      <ion-label slot="end">
         <h4>Filter by {{filterValue}}</h4>
       </ion-label>
-      <ion-button fill="outline" slot="end">
+      <ion-button fill="outline" slot="start" (click)="presentServFlavPopover($event)">
         <ion-icon name="funnel" mode="ios"></ion-icon>
       </ion-button>
     </ion-item>
@@ -24,15 +24,15 @@
     <div class="beer-item flex-row" (click)="openBeerItem(item)">
 
       <div class="left">
-        <img class="view-icon" *ngIf="item.serving_type == 0" [src]="beerIcon" alt="">
-        <img class="view-icon" *ngIf="item.serving_type == 1" [src]="draftIcon" alt="">
+        <img class="view-icon" *ngIf="item.serving_type == 'Bottle'" [src]="beerIcon" alt="">
+        <img class="view-icon" *ngIf="item.serving_type == 'Draft'" [src]="draftIcon" alt="">
       </div>
   
       <div class="center">
         <h5 class="title">{{item.beer_name}}</h5>
 
         <div class="rating-container">
-          <star-rating [value]="item.rating - 1" totalstars="5" checkedcolor="#fa9c1c" uncheckedcolor="black" size="24px" readonly="true"></star-rating>
+          <star-rating [value]="item.rating" totalstars="5" checkedcolor="#fa9c1c" uncheckedcolor="black" size="24px" readonly="true"></star-rating>
         </div>
       </div>
   

@@ -9,6 +9,8 @@ import { RatingModule } from 'ng-starrating';
 import { ViewAllPageRoutingModule } from './view-all-routing.module';
 
 import { ViewAllPage } from './view-all.page';
+import { FilterComponentComponent } from 'src/app/components/filter-component/filter-component.component';
+import { ServingFlavourFilterComponent } from 'src/app/components/serving-flavour-filter/serving-flavour-filter.component';
 
 @NgModule({
   imports: [
@@ -18,6 +20,7 @@ import { ViewAllPage } from './view-all.page';
     ViewAllPageRoutingModule,
     RatingModule
   ],
-  declarations: [ViewAllPage]
+  declarations: [ViewAllPage, FilterComponentComponent, ServingFlavourFilterComponent],
+  entryComponents: [FilterComponentComponent, ServingFlavourFilterComponent]
 })
 export class ViewAllPageModule {}

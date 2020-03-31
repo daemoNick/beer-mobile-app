@@ -12,3 +12,8 @@ export interface Flavour {
     Dry: string;
     Linger: string;
 }
+
+export interface Serving{
+    Draft: string;
+    Bottle: string;
+}

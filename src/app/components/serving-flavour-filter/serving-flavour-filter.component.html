@@ -1,0 +1,19 @@
+<ion-list *ngIf="filterType === 'Flavour'">
+
+  <ion-item *ngFor="let flavour of flavours" (click)="setFlavour(flavour)">
+    <ion-label>
+     {{flavour}}
+    </ion-label>
+  </ion-item>
+
+</ion-list>
+
+<ion-list *ngIf="filterType === 'Serving'">
+
+  <ion-item *ngFor="let serving of servings" (click)="setServing(serving)">
+    <ion-label>
+    {{serving}}
+    </ion-label>
+  </ion-item>
+
+</ion-list>

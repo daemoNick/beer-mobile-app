@@ -1,10 +1,11 @@
 export interface BeerItem {
+    id: number;
     beer_name: string;
     brewer: string;
-    created_on: Date;
+    created_on: number;
     price: number;
-    serving_type: number;
+    serving_type: string;
     rating: number;
-    flavour: number;
+    flavour: string;
     description: string;
 }

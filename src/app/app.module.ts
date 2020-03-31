@@ -15,8 +15,8 @@ import { FilterComponentComponent } from './components/filter-component/filter-c
 
 
 @NgModule({
-  declarations: [AppComponent, FilterComponentComponent],
-  entryComponents: [FilterComponentComponent],
+  declarations: [AppComponent, ],
+  entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,
