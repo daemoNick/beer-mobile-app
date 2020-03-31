@@ -1,10 +1,24 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>My Beers</ion-title>
+    <ion-button class="no-color" (click)="presentPopover($event)" slot="end">
+      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
+  <div class="filter-container" *ngIf="filterValue && filterValue !== 'nil'">
+    <ion-item>
+      <ion-label slot="start">
+        <h4>Filter by {{filterValue}}</h4>
+      </ion-label>
+      <ion-button fill="outline" slot="end">
+        <ion-icon name="funnel" mode="ios"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </div>
   
   <div class="beer-items-container" *ngFor="let item of feedItems">
     <div class="beer-item flex-row" (click)="openBeerItem(item)">
@@ -18,7 +32,7 @@
         <h5 class="title">{{item.beer_name}}</h5>
 
         <div class="rating-container">
-          <star-rating [value]="item.rating - 1" totalstars="5" checkedcolor="#fa9c1c" uncheckedcolor="black" size="24px" readonly="true" (rate)="onRate($event)"></star-rating>
+          <star-rating [value]="item.rating - 1" totalstars="5" checkedcolor="#fa9c1c" uncheckedcolor="black" size="24px" readonly="true"></star-rating>
         </div>
       </div>
   

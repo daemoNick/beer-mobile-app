@@ -12,11 +12,11 @@ import { BeerDetailPage } from './beer-detail.page';
 
 @NgModule({
   imports: [
+    RatingModule,
     CommonModule,
     FormsModule,
     IonicModule,
     BeerDetailPageRoutingModule,
-    RatingModule
   ],
   declarations: [BeerDetailPage]
 })

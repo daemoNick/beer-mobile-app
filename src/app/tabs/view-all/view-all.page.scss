@@ -1,3 +1,7 @@
+.no-color{
+    --background: #fff;
+}
+
 .beer-item{
     width: 100%;
     max-width: 400px;
@@ -6,7 +10,7 @@
     background-color: #f9f9f9;
     margin: 14px auto;
     border-radius: 6px 6px 6px 6px;
-    box-shadow: -1px 0px 6px 0px  #888864;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.05), 0 2px 3px rgba(0,0,0,0.05);
 }
 
 .beer-item:active{

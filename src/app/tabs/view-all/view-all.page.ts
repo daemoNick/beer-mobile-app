@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { BeerFeedService } from 'src/app/services/beer-feed/beer-feed.service';
 import { BeerItem } from 'src/app/models/BeerItem';
-
+import { PopoverController } from '@ionic/angular';
+import { FilterComponentComponent } from 'src/app/components/filter-component/filter-component.component';
 
 @Component({
   selector: 'app-view-all',
@@ -15,10 +16,15 @@ export class ViewAllPage implements OnInit {
   draftIcon = 'assets/icon/pick-icons/draft-pick.png';
 
   feedItems: BeerItem[];
+  dataFromPopOver;
+
+  // filterState;
+  filterValue;
 
   constructor(
     private router: Router,
-    private beerFeedSrvc: BeerFeedService
+    private beerFeedSrvc: BeerFeedService,
+    public  popoverController: PopoverController
   ) { }
 
   ngOnInit() {
@@ -34,23 +40,47 @@ export class ViewAllPage implements OnInit {
      this.router.navigate(['/', 'tabs', 'view-all', 'beer-detail'], navigationExtras);
   }
 
-  onRate(e){
+  onRate(e) {
     console.log(e);
   }
 
-  // servingTypeString(item: BeerItem): string {
-  //   let servingType: string;
-  //   switch (item.serving_type) {
-  //     case 0:
-  //       servingType = 'Bottle';
-  //       break;
-  //     case 1:
-  //       servingType = 'Draft';
-  //       break;
-  //     default:
-  //       servingType = 'none';
-  //   }
-  //   return servingType;
-  // }
+  filterItems(flavour) {
+    return this.feedItems.filter(item => {
+      return item.flavour === flavour;
+    });
+  }
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: FilterComponentComponent,
+      event: ev,
+      translucent: true
+    });
+
+    popover.onDidDismiss().then((dataReturned) => {
+      if (dataReturned !== null) {
+        this.dataFromPopOver = dataReturned.data;
+        this.filterState(this.dataFromPopOver);
+      }
+    });
+    return await popover.present();
+  }
+
+  filterState(data: string) {
+    switch (data) {
+      case 'Show All Beers':
+        this.filterValue = 'nil';
+        break;
+      case 'Sort by Serving':
+        this.filterValue = 'Serving';
+        break;
+      case 'Sort by Flavour':
+        this.filterValue = 'Flavour';
+        break;
+      default:
+        this.filterValue = 'nil';
+    }
+    console.log(this.filterValue);
+  }
 
 }
