@@ -29,11 +29,43 @@ export class ViewAllPage implements OnInit {
   filterType;
   filterValue;
 
+  groupByDate;
+  arrGroupByDate = [];
+
   ngOnInit() {
     // this.beerFeedSrvc
     //   .getAllBeerItems()
     //   .subscribe((res: BeerItem[]) => (this.feedItems = res));
     this.feedItems = items;
+    this.sortByDate();
+
+    this.groupByDate = this.feedItems.reduce((r, a) => {
+      console.log('a', a);
+      console.log('r', r);
+      r[a.created_on] = [...r[a.created_on] || [], a];
+      return r;
+    }, {});
+    console.log(this.groupByDate);
+    // this.arrGroupByDate.push(this.groupByDate);
+
+    const keys = Object.keys(this.groupByDate);
+    const values = Object.values(this.groupByDate);
+    console.log(keys);
+    console.log(values);
+
+
+    // for(let obj in this.groupByDate){
+
+    // }
+
+    // console.log(this.arrGroupByDate[0]);
+    // console.log(this.arrGroupByDate);
+
+    // this.arrGroupByDate.forEach((arrayItem) => {
+    //   const x = arrayItem;
+    //   console.log(x);
+    // });
+
   }
 
   openBeerItem(item) {
@@ -128,6 +160,12 @@ export class ViewAllPage implements OnInit {
   filterFlavour(flavour) {
     this.feedItems = this.feedItems.filter((feedItem: BeerItem) => {
       return feedItem.flavour === flavour;
+    });
+  }
+
+  sortByDate() {
+    return this.feedItems = this.feedItems.sort((a, b) => {
+      return b.created_on - a.created_on;
     });
   }
 
