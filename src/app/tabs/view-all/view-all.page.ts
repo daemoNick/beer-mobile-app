@@ -32,6 +32,8 @@ export class ViewAllPage implements OnInit {
   groupByDate;
   arrGroupByDate = [];
 
+  keys;
+
   ngOnInit() {
     // this.beerFeedSrvc
     //   .getAllBeerItems()
@@ -48,9 +50,9 @@ export class ViewAllPage implements OnInit {
     console.log(this.groupByDate);
     // this.arrGroupByDate.push(this.groupByDate);
 
-    const keys = Object.keys(this.groupByDate);
+    this.keys = Object.keys(this.groupByDate);
     const values = Object.values(this.groupByDate);
-    console.log(keys);
+    // console.log(keys);
     console.log(values);
 
 
@@ -81,7 +83,7 @@ export class ViewAllPage implements OnInit {
   }
 
   filterItems(flavour) {
-    return this.feedItems.filter(item => {
+    return this.groupByDate.filter(item => {
       return item.flavour === flavour;
     });
   }
@@ -152,13 +154,13 @@ export class ViewAllPage implements OnInit {
   }
 
   filterServing(serving) {
-    this.feedItems = this.feedItems.filter((feedItem: BeerItem) => {
+    this.groupByDate = this.feedItems.filter((feedItem: BeerItem) => {
       return feedItem.serving_type === serving;
     });
   }
 
   filterFlavour(flavour) {
-    this.feedItems = this.feedItems.filter((feedItem: BeerItem) => {
+    this.groupByDate = this.feedItems.filter((feedItem: BeerItem) => {
       return feedItem.flavour === flavour;
     });
   }
