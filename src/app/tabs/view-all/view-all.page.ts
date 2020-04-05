@@ -46,8 +46,8 @@ export class ViewAllPage implements OnInit {
 
   groupItemsByDate() {
     this.groupByDate = this.feedItems.reduce((r, a) => {
-      console.log('a', a);
-      console.log('r', r);
+      // console.log('a', a);
+      // console.log('r', r);
       r[a.created_on] = [...r[a.created_on] || [], a];
       return r;
     }, {});
@@ -67,13 +67,6 @@ export class ViewAllPage implements OnInit {
       ['/', 'tabs', 'view-all', 'beer-detail'],
       navigationExtras
     );
-  }
-
-  filterItems(flavour) {
-    this.feedItems.filter(item => {
-      item.flavour === flavour;
-    });
-    this.groupItemsByDate();
   }
 
   async presentPopover(ev: any) {
@@ -153,11 +146,14 @@ export class ViewAllPage implements OnInit {
     this.groupItemsByDate();
   }
 
-  filterFlavour(flavour) {
+  filterFlavour(passedflavour) {
     this.feedItems = items;
-    this.feedItems = this.feedItems.filter((feedItem: BeerItem) => {
-      return feedItem.flavour === flavour;
+    const testArray = this.feedItems.filter(arr => {
+        return arr.flavour.find(item => item === passedflavour);
     });
+
+    this.feedItems = testArray;
+    console.log(testArray);
     this.groupItemsByDate();
   }
 

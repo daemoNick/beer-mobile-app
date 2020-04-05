@@ -6,6 +6,6 @@ export interface BeerItem {
     price: number;
     serving_type: string;
     rating: number;
-    flavour: string;
+    flavour: string[];
     description: string;
 }

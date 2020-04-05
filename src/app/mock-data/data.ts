@@ -8,7 +8,7 @@ export const items: BeerItem[] = [
       created_on: Date.parse('2018-03-30T12:43:39.547035Z'),
       price: 4,
       rating: 3,
-      flavour: 'Hoppy',
+      flavour: ['Hoppy', 'Alcohol', 'Malty'],
       serving_type: 'Draft',
       description: 'A test to see how it displays'
     },
@@ -19,7 +19,7 @@ export const items: BeerItem[] = [
       created_on: Date.parse('2018-03-30T12:43:39.547035Z'),
       price: 4,
       rating: 3,
-      flavour: 'Hoppy',
+      flavour: ['Hoppy', 'Sour'],
       serving_type: 'Draft',
       description: 'A test to see how it displays'
     },
@@ -28,9 +28,9 @@ export const items: BeerItem[] = [
       beer_name: 'Guinness',
       brewer: 'Irish Bottling',
       created_on: Date.parse('2019-03-30T12:43:39.547035Z'),
-      price: 4,
+      price: 2,
       rating: 3,
-      flavour: 'Burnt',
+      flavour: ['Burnt', 'Linger', 'Bitter'],
       serving_type: 'Bottle',
       description: 'A test to see how it displays'
     },
@@ -39,9 +39,9 @@ export const items: BeerItem[] = [
       beer_name: 'Heineken',
       brewer: 'Irish Bottling',
       created_on: Date.parse('2020-02-30T12:43:39.547035Z'),
-      price: 4,
+      price: 6,
       rating: 5,
-      flavour: 'Spicy',
+      flavour: ['Spicy', 'Alcohol', 'Floral', 'Linger'],
       serving_type: 'Draft',
       description: 'A test to see how it displays'
     },
@@ -50,9 +50,9 @@ export const items: BeerItem[] = [
       beer_name: 'Castle',
       brewer: 'Irish Bottling',
       created_on: Date.parse('2020-01-15T12:43:39.547035Z'),
-      price: 4,
+      price: 3,
       rating: 5,
-      flavour: 'Sweet',
+      flavour: ['Sweet', 'Malty', 'Sour', 'Dry'],
       serving_type: 'Draft',
       description: 'A test to see how it displays'
     }
