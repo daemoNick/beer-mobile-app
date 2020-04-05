@@ -58,3 +58,16 @@ export const items: BeerItem[] = [
     }
   ];
 
+export const Flavours = [
+  'Alcohol',
+  'Hoppy',
+  'Floral',
+  'Spicy',
+  'Malty',
+  'Burnt',
+  'Sweet',
+  'Sour',
+  'Bitter',
+  'Dry',
+  'Linger',
+];

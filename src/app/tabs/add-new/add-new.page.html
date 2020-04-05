@@ -1,9 +1,59 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>add-new</ion-title>
+    <ion-title>Add new beer</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <form>
 
+      <div class="select-type-container" style="padding: 20px 50px;">
+        <ion-item>
+          <ion-label>Serving Type</ion-label>
+          <ion-select value="Bottle" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="Bottle">Bottle</ion-select-option>
+            <ion-select-option value="Draft">Draft</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <div class="detail-form">
+        <ion-item>
+          <ion-label position="stacked">Beer Name</ion-label>
+          <ion-input type="text"></ion-input>
+          <ion-icon name="beer-outline" slot="start"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Brewer</ion-label>
+          <ion-input type="text"></ion-input>
+          <ion-icon name="business-outline" slot="start"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Price</ion-label>
+          <ion-input type="number"></ion-input>
+          <ion-icon name="pricetag-outline" slot="start"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Description</ion-label>
+          <ion-textarea type="number"></ion-textarea>
+          <ion-icon name="document-text-outline" slot="start"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Flavor</ion-label>
+          <ion-select multiple value="" okText="Okay" cancelText="Dismiss">
+            <ion-select-option *ngFor="let flavour of flavours" value="{{flavour}}">{{flavour}}</ion-select-option>
+          </ion-select>
+          <ion-icon name="leaf-outline" slot="start"></ion-icon>
+        </ion-item>
+      </div>
+
+      <div class="rating-container">
+        <star-rating value="0" totalstars="5" checkedcolor="#fa9c1c" uncheckedcolor="black" size="24px"
+          ></star-rating>
+      </div>
+    </form>
 </ion-content>
