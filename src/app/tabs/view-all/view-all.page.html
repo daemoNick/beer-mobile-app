@@ -20,10 +20,12 @@
     </ion-item>
   </div>
 
-  <div class="beer-items-container" *ngFor="let item of keys">{{item | date: 'shortDate' }}
-    <div class="" *ngFor="let data of groupByDate[item]">
-      <!-- <p>{{data.beer_name}}</p> -->
-      <div class="beer-item flex-row" (click)="openBeerItem(item)">
+  <div class="beer-items-container" *ngFor="let date of dates">
+    <div class="date-item-container">
+      <p>{{date | date: 'shortDate' }}</p>
+    </div>
+    <div class="" *ngFor="let data of groupByDate[date]">
+      <div class="beer-item flex-row" (click)="openBeerItem(data)">
 
         <div class="left">
           <img class="view-icon" *ngIf="data.serving_type == 'Bottle'" [src]="beerIcon" alt="">

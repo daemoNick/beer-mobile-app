@@ -32,7 +32,7 @@ export class ViewAllPage implements OnInit {
   groupByDate;
   arrGroupByDate = [];
 
-  keys;
+  dates;
 
   ngOnInit() {
     // this.beerFeedSrvc
@@ -41,6 +41,10 @@ export class ViewAllPage implements OnInit {
     this.feedItems = items;
     this.sortByDate();
 
+    this.groupItemsByDate();
+  }
+
+  groupItemsByDate() {
     this.groupByDate = this.feedItems.reduce((r, a) => {
       console.log('a', a);
       console.log('r', r);
@@ -48,26 +52,9 @@ export class ViewAllPage implements OnInit {
       return r;
     }, {});
     console.log(this.groupByDate);
-    // this.arrGroupByDate.push(this.groupByDate);
 
-    this.keys = Object.keys(this.groupByDate);
+    this.dates = Object.keys(this.groupByDate);
     const values = Object.values(this.groupByDate);
-    // console.log(keys);
-    console.log(values);
-
-
-    // for(let obj in this.groupByDate){
-
-    // }
-
-    // console.log(this.arrGroupByDate[0]);
-    // console.log(this.arrGroupByDate);
-
-    // this.arrGroupByDate.forEach((arrayItem) => {
-    //   const x = arrayItem;
-    //   console.log(x);
-    // });
-
   }
 
   openBeerItem(item) {
@@ -83,9 +70,10 @@ export class ViewAllPage implements OnInit {
   }
 
   filterItems(flavour) {
-    return this.groupByDate.filter(item => {
-      return item.flavour === flavour;
+    this.feedItems.filter(item => {
+      item.flavour === flavour;
     });
+    this.groupItemsByDate();
   }
 
   async presentPopover(ev: any) {
@@ -126,6 +114,8 @@ export class ViewAllPage implements OnInit {
   filterState(data: string) {
     switch (data) {
       case 'Show All Beers':
+        this.feedItems = items;
+        this.groupItemsByDate();
         this.filterValue = 'nil';
         break;
       case 'Sort by Serving':
@@ -135,6 +125,8 @@ export class ViewAllPage implements OnInit {
         this.filterValue = 'Flavour';
         break;
       default:
+        this.feedItems = items;
+        this.groupItemsByDate();
         this.filterValue = 'nil';
     }
     console.log(this.filterValue);
@@ -154,15 +146,19 @@ export class ViewAllPage implements OnInit {
   }
 
   filterServing(serving) {
-    this.groupByDate = this.feedItems.filter((feedItem: BeerItem) => {
+    this.feedItems = items;
+    this.feedItems = this.feedItems.filter((feedItem: BeerItem) => {
       return feedItem.serving_type === serving;
     });
+    this.groupItemsByDate();
   }
 
   filterFlavour(flavour) {
-    this.groupByDate = this.feedItems.filter((feedItem: BeerItem) => {
+    this.feedItems = items;
+    this.feedItems = this.feedItems.filter((feedItem: BeerItem) => {
       return feedItem.flavour === flavour;
     });
+    this.groupItemsByDate();
   }
 
   sortByDate() {
