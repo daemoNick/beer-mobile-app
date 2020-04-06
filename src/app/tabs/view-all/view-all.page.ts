@@ -32,7 +32,7 @@ export class ViewAllPage implements OnInit {
   groupByDate;
   arrGroupByDate = [];
 
-  dates;
+  dates: string[];
 
   ngOnInit() {
     // this.beerFeedSrvc
@@ -40,7 +40,6 @@ export class ViewAllPage implements OnInit {
     //   .subscribe((res: BeerItem[]) => (this.feedItems = res));
     this.feedItems = items;
     this.sortByDate();
-
     this.groupItemsByDate();
   }
 
@@ -53,10 +52,12 @@ export class ViewAllPage implements OnInit {
     }, {});
     console.log(this.groupByDate);
 
+    // --- Store keys in a variable to loop through later ----
     this.dates = Object.keys(this.groupByDate);
-    const values = Object.values(this.groupByDate);
+    // const values = Object.values(this.groupByDate);
   }
 
+  // --- Navigate to beer detail page ----
   openBeerItem(item) {
     const navigationExtras: NavigationExtras = {
       state: {
@@ -69,11 +70,13 @@ export class ViewAllPage implements OnInit {
     );
   }
 
+  // --- Popover for setting different filter states [view all, filter by serving, filter by flavour] ----
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: FilterComponentComponent,
       event: ev,
-      translucent: true
+      translucent: true,
+      backdropDismiss: false
     });
 
     popover.onDidDismiss().then(dataReturned => {
@@ -85,6 +88,7 @@ export class ViewAllPage implements OnInit {
     return await popover.present();
   }
 
+  // --- Popover for controlling filter state values [ filter by serving types, filter by flavour types] ----
   async presentServFlavPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: ServingFlavourFilterComponent,
@@ -92,7 +96,8 @@ export class ViewAllPage implements OnInit {
       translucent: true,
       componentProps: {
         filterType: this.filterValue
-      }
+      },
+      backdropDismiss: false
     });
 
     popover.onDidDismiss().then(dataReturned => {
