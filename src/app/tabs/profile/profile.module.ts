@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SortPageRoutingModule } from './sort-routing.module';
+import { ProfilePageRoutingModule } from './profile-routing.module';
 
-import { SortPage } from './sort.page';
+import { ProfilePage } from './profile.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SortPageRoutingModule
+    ProfilePageRoutingModule
   ],
-  declarations: [SortPage]
+  declarations: [ProfilePage]
 })
-export class SortPageModule {}
+export class ProfilePageModule {}

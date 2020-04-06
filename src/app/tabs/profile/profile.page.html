@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="profile-container">
+    <div class="avatar-container">
+      <div class="avatar-circle">
+        <div class="badge deg45">
+          <img id="badge" src="assets/icon/edit-badge.svg" alt="">
+        </div>
+        <ion-avatar slot="start">
+          <img id="profile" src="../../../assets/icon/default_profile.png">
+        </ion-avatar>
+      </div>
+    </div>
+    <div class="name-container">
+      <!-- <h4>{{this.currentUser?.emailAddress}}</h4> -->
+    </div>
+  </div>
+
+  <div class="profile-items">
+    <ion-item>
+      <!-- <ion-label position="stacked">Beer Name</ion-label> -->
+      <ion-input value="SomeEmail@test.com"  type="text"></ion-input>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label position="stacked">Brewer</ion-label> -->
+      <ion-input  value="James Drinkbeer" type="text"></ion-input>
+      <ion-icon name="business-outline" slot="start"></ion-icon>
+    </ion-item>
+  </div>
+</ion-content>

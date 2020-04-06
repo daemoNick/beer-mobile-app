@@ -5,7 +5,7 @@
       <ion-icon name="ellipsis-vertical-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
-  
+
   <div class="filter-container" *ngIf="filterValue && filterValue !== 'nil'">
     <ion-item>
       <ion-label slot="end">
@@ -19,8 +19,6 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-
-  
 
   <div class="beer-items-container" *ngFor="let date of dates">
     <div class="date-item-container">

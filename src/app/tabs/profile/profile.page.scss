@@ -1,0 +1,74 @@
+$email-font:  #323A5D;
+$border: 1px solid rgba(196, 196, 196, 0.62);
+$circle-size: 200px;
+$badge-size: 40px;
+$color-primary: #560BD0;
+
+.profile-container{
+    padding-bottom: 20px;
+    border-bottom: $border;
+    margin-top: 10px;
+
+    .name-container{
+        color: $email-font;
+        width: 100%;
+        font-family: 'poppins-bold';
+        text-align: center;
+    }
+}
+
+.avatar-container{ 
+
+    .avatar-circle {
+        position: relative;
+        margin: 0px auto 0px;
+        border-radius: 50%;
+        width: $circle-size;
+        height: $circle-size;
+        background: #ffffff;
+        border: $border;
+
+        .badge{
+            z-index: 10;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -($badge-size/ 2);
+           
+            #badge{
+                width: $badge-size;
+                height: $badge-size;
+            }
+        }
+
+        .badge:active{
+            border-radius: 50%;
+            background: rgba($color: $color-primary, $alpha: 0.1);
+        }
+
+        ion-avatar{
+            --border-radius: 50%;
+        }
+
+
+        #profile{
+            // margin: auto;
+            position: absolute;
+            max-width: 150px;
+            max-height: 150px;
+            vertical-align: middle;
+    
+    
+            left: 50%;
+            margin-left: -75px; //half of #profile width
+            top: 50%;
+            margin-top: -75px;
+        }
+    }
+}
+
+.deg45 { transform: rotate(45deg) translate(($circle-size/2)) rotate(-45deg); }
+
+.profile-items{
+    padding: 30px;
+}

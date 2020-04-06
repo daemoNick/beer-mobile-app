@@ -22,8 +22,8 @@ const routes: Routes = [
         loadChildren: () => import('./add-new/add-new.module').then( m => m.AddNewPageModule)
       },
       {
-        path: 'sort',
-        loadChildren: () => import('./sort/sort.module').then( m => m.SortPageModule)
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
       }
     ]
   }
