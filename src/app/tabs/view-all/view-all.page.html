@@ -22,6 +22,7 @@
 
   <div class="beer-items-container" *ngFor="let date of dates">
     <div class="date-item-container">
+      <ion-icon name="calendar-outline"></ion-icon>
       <p>{{date | date: 'shortDate' }}</p>
     </div>
     <div class="" *ngFor="let data of groupByDate[date]">

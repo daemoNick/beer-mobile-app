@@ -25,13 +25,20 @@
 
 .date-item-container{
     // padding: 0.5px 1px ;
+    width: 100px;
     border-radius: 6px 6px 6px 6px;
     box-shadow: 0 2px 3px rgba(0,0,0,0.01), 0 2px 3px rgba(0,0,0,0.01);
     text-align: center;
     font-style: italic;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
 
     p{
         font-size: 12px;
+        display: inline-block;
     }
 }
 
